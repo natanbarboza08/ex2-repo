@@ -1,0 +1,46 @@
+### 1. Esperado: HTTP 200
+GET http://localhost:8081/
+
+### 2. Esperado: HTTP 200
+GET http://localhost:8081/livros
+
+### 3. Esperado: HTTP 201
+POST http://localhost:8081/livros/cadastrar
+Content-Type: application/json
+
+{
+  "titulo": "Banco de Dados para Iniciantes",
+  "autor": "Maria Souza",
+  "editora": "EduTech",
+  "ano": 2023,
+  "categoria": "Informática",
+  "status": "Disponível"
+}
+
+### 4. Esperado: HTTP 200
+GET http://localhost:8081/livros/1
+
+### 5. Esperado: HTTP 200
+PUT http://localhost:8081/livros/alterar/1
+Content-Type: application/json
+
+{
+  "titulo": "Banco de Dados Essencial",
+  "autor": "Maria Souza",
+  "editora": "EduTech",
+  "ano": 2024,
+  "categoria": "Banco de Dados",
+  "status": "Emprestado"
+}
+
+### 6. Esperado: HTTP 404 (ID inexistente)
+GET http://localhost:8081/livros/999
+
+### 7. Esperado: HTTP 200
+GET http://localhost:8081/documentacao
+
+### Extra. Esperado: HTTP 400 (corpo vazio)
+POST http://localhost:8081/livros/cadastrar
+Content-Type: application/json
+
+{}
